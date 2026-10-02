@@ -1,16 +1,79 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // Confirmación en consola de que el script se cargó correctamente
-    console.log("Módulo JS cargado exitosamente en Gaming_Storee.");
+javascript
+// =========================================
+// PIXELZONE - FUNCIONES INTERACTIVAS
+// =========================================
 
-    // Función para mostrar un saludo interactivo en la tienda
-    const mostrarSaludo = () => {
-        alert("¡Bienvenido a Gaming_Storee! Explora nuestros productos.");
-    };
 
-    // Ejemplo de enlace a un botón (si el HTML del Estudiante 1 incluye un botón con id 'btn-saludo')
-    const botonInteractivo = document.getElementById('btn-saludo');
-    
-    if (botonInteractivo) {
-        botonInteractivo.addEventListener('click', mostrarSaludo);
-    }
+// =========================================
+// BOTÓN PRINCIPAL
+// =========================================
+
+const botonAccion = document.getElementById("btn-accion");
+
+if (botonAccion) {
+
+    botonAccion.addEventListener("click", function () {
+
+        alert(
+            "🎮 ¡Bienvenido a PixelZone!\n\n" +
+            "Tu próxima aventura comienza aquí."
+        );
+
+    });
+
+}
+
+
+// =========================================
+// BOTÓN DE COMUNIDAD
+// =========================================
+
+const botonComunidad = document.getElementById("btn-comunidad");
+
+if (botonComunidad) {
+
+    botonComunidad.addEventListener("click", function () {
+
+        alert(
+            "👾 ¡Bienvenido a la comunidad PixelZone!\n\n" +
+            "Pronto tendremos nuevas funciones para jugadores."
+        );
+
+    });
+
+}
+
+
+// =========================================
+// BOTONES DE JUEGOS
+// =========================================
+
+const botonesJuego = document.querySelectorAll(".game-button");
+
+botonesJuego.forEach(function (boton) {
+
+    boton.addEventListener("click", function () {
+
+        const tarjeta = boton.closest(".game-card");
+
+        const nombreJuego =
+            tarjeta.querySelector("h3").textContent;
+
+        alert(
+            "🎮 " +
+            nombreJuego +
+            "\n\n" +
+            "Has seleccionado este juego."
+        );
+
+    });
+
 });
+
+
+// =========================================
+// MENSAJE EN CONSOLA
+// =========================================
+
+console.log("🎮 PixelZone cargado correctamente.");
+console.log("⚡ JavaScript funcionando correctamente.");

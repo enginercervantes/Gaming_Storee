@@ -1,134 +1,760 @@
 /* =========================================
-   Estilos Globales y Variables
+   PIXELZONE - ESTILOS GAMER
 ========================================= */
+
 :root {
-    --fondo-principal: #0b0c10;      /* Negro azulado muy oscuro */
-    --fondo-secundario: #1f2833;     /* Gris azulado para tarjetas */
-    --texto-claro: #c5c6c7;          /* Gris claro para lectura */
-    --texto-blanco: #ffffff;         /* Blanco puro para títulos */
-    --acento-neon: #66fcf1;          /* Cian neón estilo gamer */
-    --acento-hover: #45a29e;         /* Cian más oscuro para botones */
-    --rojo-descuento: #ff3b3b;       /* Rojo para etiquetas de precio */
+    --fondo: #070b12;
+    --fondo-secundario: #111a27;
+    --fondo-card: #151f2e;
+
+    --texto: #c5c6c7;
+    --blanco: #ffffff;
+
+    --cian: #66fcf1;
+    --cian-oscuro: #45a29e;
+
+    --morado: #9b5cff;
+    --rojo: #ff3b5c;
+
+    --borde: rgba(102, 252, 241, 0.2);
+}
+
+
+/* =========================================
+   GENERAL
+========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-    background-color: var(--fondo-principal);
-    color: var(--texto-claro);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
+
+    background:
+        radial-gradient(
+            circle at top right,
+            rgba(102, 252, 241, 0.08),
+            transparent 30%
+        ),
+        var(--fondo);
+
+    color: var(--texto);
+
+    font-family:
+        'Segoe UI',
+        Tahoma,
+        Geneva,
+        Verdana,
+        sans-serif;
+
     line-height: 1.6;
 }
 
-/* =========================================
-   Encabezado (Header) y Navegación
-========================================= */
-.header-tienda {
-    background-color: var(--fondo-secundario);
-    padding: 20px;
-    text-align: center;
-    border-bottom: 3px solid var(--acento-neon);
-    box-shadow: 0 4px 15px rgba(102, 252, 241, 0.2);
+a {
+    text-decoration: none;
 }
 
-.titulo-principal {
-    color: var(--texto-blanco);
-    font-size: 2.5rem;
+
+/* =========================================
+   HEADER
+========================================= */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    background: rgba(17, 26, 39, 0.95);
+
+    backdrop-filter: blur(10px);
+
+    border-bottom: 1px solid var(--borde);
+}
+
+.header-container {
+    max-width: 1200px;
+
+    margin: auto;
+
+    padding: 18px 25px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+}
+
+#logo {
     margin: 0;
-    text-transform: uppercase;
+
+    color: var(--blanco);
+
+    font-size: 1.8rem;
+
+    font-weight: 900;
+
     letter-spacing: 2px;
 }
 
-.titulo-principal span {
-    color: var(--acento-neon); /* Para que "Gaming" o "Store" resalte en cian */
+#logo span {
+    color: var(--cian);
 }
+
 
 /* =========================================
-   Contenedor Principal y Grilla de Juegos
+   NAV
 ========================================= */
-.contenedor-principal {
-    max-width: 1200px;
-    margin: 40px auto;
-    padding: 0 20px;
-}
 
-.grilla-juegos {
+nav ul {
     display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-    justify-content: center;
+
+    gap: 25px;
+
+    list-style: none;
+
+    margin: 0;
+
+    padding: 0;
 }
+
+nav a {
+    color: var(--texto);
+
+    font-size: 0.95rem;
+
+    font-weight: 600;
+
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: var(--cian);
+}
+
 
 /* =========================================
-   Tarjetas de Videojuegos (Productos)
+   HERO
 ========================================= */
-.tarjeta-juego {
-    background-color: var(--fondo-secundario);
-    border-radius: 10px;
-    width: 300px;
-    padding: 20px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 1px solid transparent;
+
+.hero-section {
+    min-height: 650px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 80px 20px;
+
+    background:
+        linear-gradient(
+            rgba(7, 11, 18, 0.55),
+            rgba(7, 11, 18, 0.95)
+        ),
+        radial-gradient(
+            circle at center,
+            rgba(102, 252, 241, 0.15),
+            transparent 50%
+        );
 }
 
-.tarjeta-juego:hover {
-    transform: translateY(-10px);
-    border-color: var(--acento-neon);
-    box-shadow: 0 10px 20px rgba(102, 252, 241, 0.15);
+.hero-content {
+    max-width: 850px;
 }
 
-.titulo-juego {
-    color: var(--texto-blanco);
+.hero-tag,
+.section-title span,
+.community-section span {
+    color: var(--cian);
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    font-size: 0.8rem;
+}
+
+.hero-section h2 {
+    color: var(--blanco);
+
+    font-size: clamp(2.5rem, 7vw, 5rem);
+
+    line-height: 1.05;
+
+    margin: 20px 0;
+}
+
+.hero-section p {
+    max-width: 700px;
+
+    margin: 0 auto 35px;
+
+    font-size: 1.15rem;
+}
+
+
+/* =========================================
+   BOTONES
+========================================= */
+
+.hero-buttons {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+}
+
+#btn-accion,
+#btn-comunidad {
+    background: var(--cian);
+
+    color: #071014;
+
+    border: none;
+
+    padding: 14px 25px;
+
+    border-radius: 6px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+#btn-accion:hover,
+#btn-comunidad:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 0 25px rgba(102, 252, 241, 0.4);
+}
+
+.btn-secundario {
+    color: var(--cian);
+
+    border: 1px solid var(--cian);
+
+    padding: 13px 25px;
+
+    border-radius: 6px;
+
+    font-weight: 700;
+
+    transition: 0.3s;
+}
+
+.btn-secundario:hover {
+    background: var(--cian);
+
+    color: #071014;
+}
+
+
+/* =========================================
+   SECCIONES
+========================================= */
+
+.games-section,
+.categories-section,
+.news-section {
+    max-width: 1200px;
+
+    margin: auto;
+
+    padding: 90px 25px;
+}
+
+.section-title {
+    text-align: center;
+
+    margin-bottom: 45px;
+}
+
+.section-title h2 {
+    color: var(--blanco);
+
+    font-size: 2.5rem;
+
+    margin: 10px 0;
+}
+
+.section-title p {
+    max-width: 650px;
+
+    margin: auto;
+}
+
+
+/* =========================================
+   JUEGOS
+========================================= */
+
+.games-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+.game-card {
+    overflow: hidden;
+
+    background: var(--fondo-card);
+
+    border: 1px solid var(--borde);
+
+    border-radius: 12px;
+
+    transition: 0.3s;
+}
+
+.game-card:hover {
+    transform: translateY(-8px);
+
+    border-color: var(--cian);
+
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.35);
+}
+
+.game-image {
+    height: 190px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 5rem;
+}
+
+.cyber {
+    background:
+        linear-gradient(
+            135deg,
+            #101c35,
+            #182c4d
+        );
+}
+
+.dragon {
+    background:
+        linear-gradient(
+            135deg,
+            #35151c,
+            #54252e
+        );
+}
+
+.speed {
+    background:
+        linear-gradient(
+            135deg,
+            #291b4a,
+            #4b2d75
+        );
+}
+
+.game-info {
+    padding: 25px;
+}
+
+.game-category {
+    color: var(--cian);
+
+    font-size: 0.7rem;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+}
+
+.game-info h3 {
+    color: var(--blanco);
+
     font-size: 1.5rem;
+
+    margin: 8px 0;
+}
+
+.game-bottom {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-top: 20px;
+}
+
+.game-bottom strong {
+    color: var(--cian);
+
+    font-size: 1.3rem;
+}
+
+.game-button {
+    background: transparent;
+
+    color: var(--cian);
+
+    border: 1px solid var(--cian);
+
+    border-radius: 5px;
+
+    padding: 8px 12px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.game-button:hover {
+    background: var(--cian);
+
+    color: #071014;
+}
+
+
+/* =========================================
+   CATEGORÍAS
+========================================= */
+
+.categories-section {
+    background:
+        linear-gradient(
+            rgba(17, 26, 39, 0.5),
+            rgba(17, 26, 39, 0.5)
+        );
+
+    max-width: none;
+
+    padding-left: max(25px, calc((100% - 1150px) / 2));
+
+    padding-right: max(25px, calc((100% - 1150px) / 2));
+}
+
+.categories-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 20px;
+}
+
+.category-card {
+    padding: 30px;
+
+    text-align: center;
+
+    background: var(--fondo-card);
+
+    border: 1px solid var(--borde);
+
+    border-radius: 10px;
+
+    transition: 0.3s;
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+
+    border-color: var(--cian);
+}
+
+.category-icon {
+    font-size: 2.5rem;
+
     margin-bottom: 10px;
 }
 
-.precio-juego {
-    color: var(--acento-neon);
-    font-size: 1.3rem;
-    font-weight: bold;
-    margin: 15px 0;
+.category-card h3 {
+    color: var(--blanco);
+
+    margin: 5px 0;
 }
 
-.etiqueta-descuento {
-    background-color: var(--rojo-descuento);
-    color: white;
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-size: 0.9rem;
-    font-weight: bold;
-}
 
 /* =========================================
-   Botones
+   ESTADÍSTICAS
 ========================================= */
-.btn-comprar {
-    background-color: transparent;
-    color: var(--acento-neon);
-    border: 2px solid var(--acento-neon);
-    padding: 10px 20px;
-    font-size: 1rem;
-    font-weight: bold;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 100%;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
+
+.stats-section {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    max-width: 1000px;
+
+    margin: 0 auto;
+
+    padding: 70px 25px;
 }
 
-.btn-comprar:hover {
-    background-color: var(--acento-neon);
-    color: var(--fondo-principal);
-    box-shadow: 0 0 15px var(--acento-neon);
-}
-
-/* =========================================
-   Pie de página (Footer)
-========================================= */
-.footer-tienda {
-    background-color: var(--fondo-secundario);
+.stat {
     text-align: center;
+
+    border-right: 1px solid var(--borde);
+}
+
+.stat:last-child {
+    border-right: none;
+}
+
+.stat strong {
+    display: block;
+
+    color: var(--cian);
+
+    font-size: 2rem;
+}
+
+.stat span {
+    color: var(--texto);
+}
+
+
+/* =========================================
+   NOTICIAS
+========================================= */
+
+.news-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+.news-card {
+    padding: 25px;
+
+    background: var(--fondo-card);
+
+    border: 1px solid var(--borde);
+
+    border-radius: 10px;
+
+    transition: 0.3s;
+}
+
+.news-card:hover {
+    border-color: var(--morado);
+
+    transform: translateY(-5px);
+}
+
+.news-card > span {
+    color: var(--morado);
+
+    font-size: 0.75rem;
+
+    font-weight: 800;
+}
+
+.news-card h3 {
+    color: var(--blanco);
+
+    font-size: 1.2rem;
+}
+
+.news-card a {
+    color: var(--cian);
+
+    font-weight: bold;
+}
+
+
+/* =========================================
+   COMUNIDAD
+========================================= */
+
+.community-section {
+    max-width: 1100px;
+
+    margin: 50px auto 100px;
+
+    padding: 70px 30px;
+
+    text-align: center;
+
+    border: 1px solid var(--borde);
+
+    border-radius: 15px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(102, 252, 241, 0.12),
+            transparent 60%
+        );
+}
+
+.community-section h2 {
+    color: var(--blanco);
+
+    font-size: 2.5rem;
+}
+
+.community-section p {
+    margin-bottom: 30px;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer {
+    background: #05080d;
+
+    border-top: 1px solid var(--borde);
+}
+
+.footer-container {
+    max-width: 1200px;
+
+    margin: auto;
+
+    padding: 50px 25px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 30px;
+}
+
+.footer-container h2 {
+    color: var(--blanco);
+}
+
+.footer-container h2 span {
+    color: var(--cian);
+}
+
+.footer-links {
+    display: flex;
+
+    gap: 20px;
+
+    align-items: center;
+}
+
+.footer-links a {
+    color: var(--texto);
+
+    transition: 0.3s;
+}
+
+.footer-links a:hover {
+    color: var(--cian);
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.05);
+
+    text-align: center;
+
     padding: 20px;
-    margin-top: 50px;
-    border-top: 1px solid #333;
+}
+
+.footer-bottom p {
+    margin: 0;
+
+    font-size: 0.85rem;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 900px) {
+
+    .header-container {
+        flex-direction: column;
+
+        gap: 15px;
+    }
+
+    .games-grid,
+    .news-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .categories-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    nav ul {
+        gap: 12px;
+
+        flex-wrap: wrap;
+
+        justify-content: center;
+    }
+
+    .hero-section {
+        min-height: 550px;
+    }
+
+    .hero-section h2 {
+        font-size: 2.5rem;
+    }
+
+    .games-grid,
+    .categories-grid,
+    .news-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stats-section {
+        grid-template-columns: 1fr 1fr;
+
+        gap: 25px;
+    }
+
+    .stat {
+        border-right: none;
+    }
+
+    .footer-container {
+        flex-direction: column;
+
+        text-align: center;
+
+        align-items: center;
+    }
+
+    .footer-links {
+        flex-wrap: wrap;
+
+        justify-content: center;
+    }
 }
